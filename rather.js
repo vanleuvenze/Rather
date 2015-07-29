@@ -1,4 +1,7 @@
+$(document).ready(function () {
 
+
+//The following arrays contain the situations that are randomized to formulate the questions.  
 var bodyParts = [
 ['arms', 'a head', 'hands', 'fingers', 'teeth', 'a tounge', 'legs', 'toes', 'feet', 'a moustache', 'eyebrows', 'fingernails', 'armpit hair', 'hair', 'eyeballs', 'ears', 'arm hair', ],
  ['pickles', 'feathers', 'stiff ropes', 'plastic spoons', 'moss', 'cantelopue', 'pinecones', 'candy corn', 'octopus tentacles']
@@ -16,35 +19,66 @@ var disaster = [
 
    ]
 
-
-
-
 ]
 
+//The following are functions that are used to randomized the above scenarios.  A string is returned that (on a click event) replaces the text in the paragraph element in the HTML.
+
 function bodyPartsFunc (arr) {
-        document.getElementById('output').innerHTML = ("Would you rather have " + arr[1][Math.floor(Math.random() * arr[1].length)] + " for " + arr[0][Math.floor(Math.random() * arr[0].length)] + " or " + arr[1][Math.floor(Math.random() * arr[1].length)] + " for " + arr[0][Math.floor(Math.random() * arr[0].length)] + '?' );
-    
+  var randomSituation = ("Would you rather have " + arr[1][Math.floor(Math.random() * arr[1].length)] + " for " + arr[0][Math.floor(Math.random() * arr[0].length)] + " or " + arr[1][Math.floor(Math.random() * arr[1].length)] + " for " + arr[0][Math.floor(Math.random() * arr[0].length)] + '?' );
+
+  return randomSituation;
 }
+
+
+
 
 
 function starWarsFunc (arr) {
-    document.getElementById('output').innerHTML = ("Would you rather " + arr[1][Math.floor(Math.random() * arr[1].length)] + ", or " + arr[0][Math.floor(Math.random() * arr[0].length)] + "?" );
-    	
+  var randomSituation = ("Would you rather " + arr[1][Math.floor(Math.random() * arr[1].length)] + ", or " + arr[0][ Math.floor(Math.random() * arr[0].length)] + "?" );
+
+  return randomSituation;
     }
+
+
+
+
+
 function disasterFunc (arr) {
-	document.getElementById('output').innerHTML = ("Would you rather " + arr[1][Math.floor(Math.random() * arr[1].length)] + ", or " + arr[0][Math.floor(Math.random() * arr[0].length)] + "?" );
+	var randomSituation = ("Would you rather " + arr[1][Math.floor(Math.random() * arr[1].length)] + ", or " + arr[0][Math.floor(Math.random() * arr[0].length)] + "?" );
+
+  return randomSituation;
 }
+
+
+$('#bodyParts').on('click', function () {
+  $('.nonsenseBlock').find('p').text(bodyPartsFunc(bodyParts));
+  })
+$('#starWars').on('click', function () {
+  $('.nonsenseBlock').find('p').text(starWarsFunc(starWars));
+})
+$('#disaster').on('click', function () {
+  $('.nonsenseBlock').find('p').text(disasterFunc(disaster));
+})
 function trier () {
 	document.getElementById('output').innerHTML = ('hello!')
 }
 
-function showImage (src, width, height) {
-	var img = document.createElement("img");
-	img.src = src;
-	img.width = width;
-	img.height = height;
-	img.alt = alt;
-	document.appendChild(img);
-}
+// function showImage (src, width, height) {
+// 	var img = document.createElement("img");
+// 	img.src = src;
+// 	img.width = width;
+// 	img.height = height;
+// 	img.alt = alt;
+// 	document.appendChild(img);
+// }
+
+
+
+
+
+
+
+
+})
 
 
